@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - DeshiCart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #ff6f61;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff944d;
+        }
+        .faq {
+            margin-top: 30px;
+        }
+        .faq h3 {
+            color: #ff6f61;
+        }
+        .contact-info {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Customer Support</h2>
+
+        <form id="supportForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+
+            <button type="button" onclick="submitSupport()">Submit</button>
+        </form>
+
+        <div class="faq">
+            <h3>Frequently Asked Questions (FAQ)</h3>
+            <p><strong>Q: How long does delivery take?</strong></p>
+            <p>A: Delivery usually takes 3-5 business days.</p>
+
+            <p><strong>Q: Can I return a product?</strong></p>
+            <p>A: Yes, we have a 7-day return policy for unused items.</p>
+
+            <p><strong>Q: What payment methods are accepted?</strong></p>
+            <p>A: We accept Bkash, Nagad, Rocket, and debit/credit cards.</p>
+        </div>
+
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p>📧 Email: support@deshicart.com</p>
+            <p>📞 Phone: +880 1234 567890</p>
+        </div>
+    </div>
+
+    <script>
+        function submitSupport() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            if (name && email && message) {
+                alert("Your message has been sent. We will respond shortly.");
+            } else {
+                alert("Please fill in all fields before submitting.");
+            }
+        }
+    </script>
+
+</body>
+</html>

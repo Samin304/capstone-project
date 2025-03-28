@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeshiCart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #ff6f61; /* Attractive orange-red color */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: inline-flex;
+        }
+
+        .navbar ul li {
+            display: inline;
+            margin-right: 30px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #ff944d; /* Lighten on hover */
+            border-radius: 5px;
+        }
+
+        .navbar input {
+            padding: 8px;
+            margin-left: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Slider Section */
+        .slider {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: none;
+        }
+
+        /* Filter Section */
+        .filter {
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+
+        .filter select {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Product Section */
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            width: 200px;
+            margin: 15px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .product .price {
+            font-size: 16px;
+            color: #888;
+            text-decoration: line-through;
+        }
+
+        .product .discounted-price {
+            font-size: 18px;
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        .product .offer {
+            background-color: #ff944d;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Hidden by default */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="logo">DeshiCart</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><input type="text" placeholder="Search..."></li>
+            <li><a href="suppout.html">Support & Help</a></li>
+            <li><a href="cash out.html">Cash Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- Slider Section -->
+    <div class="slider">
+        <img src="https://api.deepai.org/job-view-file/f5fe9275-578d-405b-b0eb-eaeccbff6df9/outputs/output.jpg" alt="Eid Clothing Sale">
+        <img src="https://api.deepai.org/job-view-file/1a9d954c-684e-410c-908f-300704cd24c1/outputs/output.jpg" alt="Eid Clothing Collection" class="slide">
+        <img src="https://api.deepai.org/job-view-file/0b06f339-9583-48b9-8c67-479d7aa1e653/outputs/output.jpg" alt="Exclusive Offers" class="slide">
+    </div>
+
+    <!-- Categories Filter -->
+    <div class="filter">
+        <label for="category">Select Category:</label>
+        <select id="category" onchange="filterProducts()">
+            <option value="all">All</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="child">Child</option>
+            <option value="old">Old</option>
+        </select>
+    </div>
+
+    <!-- Products Section -->
+    <div class="products">
+        <div class="product male">
+            <img src="cloth1.jpg" alt="Male Clothing">
+            <p>Male Clothing</p>
+            <div class="price">BDT 1000</div>
+            <div class="discounted-price">BDT 500</div>
+            <div class="offer">50% OFF</div>
+        </div>
+        <div class="product female">
+            <img src="cloth2.jpg" alt="Female Clothing">
+            <p>Female Clothing</p>
+            <div class="price">BDT 1200</div>
+            <div class="discounted-price">BDT 600</div>
+            <div class="offer">50% OFF</div>
+        </div>
+        <div class="product child">
+            <img src="cloth3.jpg" alt="Child Clothing">
+            <p>Child Clothing</p>
+            <div class="price">BDT 800</div>
+            <div class="discounted-price">BDT 400</div>
+            <div class="offer">50% OFF</div>
+        </div>
+        <div class="product old">
+            <img src="cloth4.jpg" alt="Old Clothing">
+            <p>Old Clothing</p>
+            <div class="price">BDT 1500</div>
+            <div class="discounted-price">BDT 750</div>
+            <div class="offer">50% OFF</div>
+        </div>
+        <!-- More products can be added here -->
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        function filterProducts() {
+            let category = document.getElementById("category").value;
+            let products = document.getElementsByClassName("product");
+
+            // Show or hide products based on the selected category
+            for (let i = 0; i < products.length; i++) {
+                if (category === "all" || products[i].classList.contains(category)) {
+                    products[i].classList.remove("hidden");
+                } else {
+                    products[i].classList.add("hidden");
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>
